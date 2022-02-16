@@ -4,6 +4,7 @@ const router = express.Router();
 
 const MoviesController = {};
 
+//Endpoint para listar las películas con más valoraciones
 MoviesController.getTop = async (req,res)=>{
     try {
 
@@ -17,6 +18,7 @@ MoviesController.getTop = async (req,res)=>{
 
     }; 
 };
+//Endpoint para listar las peliculas más populares
 MoviesController.getPopular = async (req,res)=>{
     try {
 
@@ -30,6 +32,7 @@ MoviesController.getPopular = async (req,res)=>{
 
     }; 
 };
+//Endpoint para buscar películas por título mediante Query params en postman
 MoviesController.getTitle = async (req,res)=>{
     try {
         let title = req.query.criterio;
