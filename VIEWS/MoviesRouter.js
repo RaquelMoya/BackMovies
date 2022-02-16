@@ -10,6 +10,8 @@ router.get("/",MoviesController.getTop);
 //http://localhost:3000/movies(usando GET)
 router.get("/popular",MoviesController.getPopular);
 //http://localhost:3000/movies/popular(usando GET)
+router.get("/title",MoviesController.getTitle);
+//http://localhost:3000/movies/title(usando GET)
 
 
 
