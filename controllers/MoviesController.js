@@ -95,7 +95,36 @@ MoviesController.getReviews = async (req,res)=>{
 
     }; 
 };
+//Endpoint para buscar la última pelicula añadida 
+MoviesController.getLatest = async (req,res)=>{
+    try {
+        
+        let resultado = await axios.get("https://api.themoviedb.org/3/movie/latest?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US");
 
+        res.send(resultado.data);
+
+    } catch (error) {
+
+        res.send(error);
+
+    }; 
+};
+//Endpoint para buscar películas similares dando un id mediante Query params en postman
+MoviesController.getSimilar = async (req,res)=>{
+    try {
+        //Por defecto req tiene dos metodos: query para get, body para post. Criterio es el query param KEY que ponemos desde Postman
+        let id = req.query.criterio;
+
+        let resultado = await axios.get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US&page=1`);
+
+        res.send(resultado.data);
+
+    } catch (error) {
+
+        res.send(error);
+
+    }; 
+};
 
 
 

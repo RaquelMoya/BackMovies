@@ -18,6 +18,9 @@ router.get("/details",MoviesController.getDetails);
 //http://localhost:3000/movies/details(usando GET)
 router.get("/reviews",MoviesController.getReviews);
 //http://localhost:3000/movies/reviews(usando GET)
-
+router.get("/latest",MoviesController.getLatest);
+//http://localhost:3000/movies/latest(usando GET)
+router.get("/similar",MoviesController.getSimilar);
+//http://localhost:3000/movies/similar(usando GET)
 
 module.exports = router;
