@@ -78,6 +78,23 @@ MoviesController.getDetails = async (req,res)=>{
 
     }; 
 };
+//Endpoint para buscar reviews de películas por id mediante Query params en postman
+MoviesController.getReviews = async (req,res)=>{
+    try {
+        //Por defecto req tiene dos metodos: query para get, body para post. Criterio es el query param KEY que ponemos desde Postman
+        let id = req.query.criterio;
+
+        let resultado = await axios.get(`
+        https://api.themoviedb.org/3/movie/${id}/reviews?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US&page=1`);
+
+        res.send(resultado.data);
+
+    } catch (error) {
+
+        res.send(error);
+
+    }; 
+};
 
 
 
