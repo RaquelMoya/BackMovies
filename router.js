@@ -8,6 +8,7 @@ const MoviesRouter = require(".VIEWS/MoviesRouter");
 
 router.use("/users",UserRouter);
 router.use("/movies", MoviesRouter);
+router.use("/orders", OrdersRouter);
 
 
 module.exports = router;
