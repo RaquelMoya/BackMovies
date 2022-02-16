@@ -35,6 +35,7 @@ MoviesController.getPopular = async (req,res)=>{
 //Endpoint para buscar películas por título mediante Query params en postman
 MoviesController.getTitle = async (req,res)=>{
     try {
+        //Por defecto req tiene dos metodos: query para get, body para post. Criterio es el query param KEY que ponemos desde Postman
         let title = req.query.criterio;
 
         let resultado = await axios.get(`https://api.themoviedb.org/3/search/company?api_key=210d6a5dd3f16419ce349c9f1b200d6d&query=${title}&page=1`);
