@@ -15,9 +15,13 @@ router.post("/",UserController.registerUser);
 router.post("/login",UserController.loginUser);
 //http://localhost:3000/users/login (usando POST)
 
+//Buscar usuario por ID
 router.get("/:id",UserController.getUserId);
 //http://localhost:3000/users/:id
 
+//Buscar usuario por Email
+router.get("/email/:email", UserController.getUserEmail);
+//http://localhost:3000/users/email/:email
 
 
 module.exports = router;

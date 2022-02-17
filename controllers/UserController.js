@@ -14,7 +14,7 @@ UserController.getUsers =(req,res)=>{
 };
 
 UserController.registerUser = async (req, res) =>{
-//Registro usuarios
+//Registro usuarios mediante Postman
     try{
         let name = req.body.name;
         let surname = req.body.surname;
@@ -31,7 +31,7 @@ UserController.registerUser = async (req, res) =>{
                 phone: phone,
                 adress: adress,
                 email: email
-                
+            //Se muestra en Postman 
             }).then(user =>{
                 res.json({
                     name: user.name,
@@ -49,6 +49,7 @@ UserController.loginUser =(req,res) =>{
 
 };
 
+//Para buscar un usuario mediante un id
 UserController.getUserId =(req,res) =>{
     User.findByPk(req.params.id)
     .then(data =>{
@@ -56,6 +57,7 @@ UserController.getUserId =(req,res) =>{
     })
 };
 
+//Para buscar un usuario mediante un email
 UserController.getUserEmail =(req, res) =>{
     User.findOne({ where : {email : req.params.email}})
     .then(data =>{
