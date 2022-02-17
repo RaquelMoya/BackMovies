@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 
+const db = require('./db.js');
+
 const cors = require("cors");
 
 const axios = require("axios");
@@ -23,7 +25,7 @@ app.use(cors(corsOptions));
 
 app.use(router);
 
-
-app.listen(PORT, ()=>{
-    console.log(`Servidor arriba y funcionando en el puerto ${PORT}`);
-});
+db.then(()=>{
+    app.listen(PORT, ()=> console.log(`Server on port ${PORT}`)); //ARRANCO SERVIDOR
+})
+.catch((err)=> console.log(err.message)); 

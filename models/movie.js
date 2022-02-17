@@ -18,8 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     sinopsis: DataTypes.STRING,
     adult: DataTypes.BOOLEAN,
     image: DataTypes.STRING,
-    fecha: DataTypes.STRING,
-    id: DataTypes.INTEGER
+    fecha: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Movie',

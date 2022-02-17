@@ -15,6 +15,9 @@ router.post("/",UserController.registerUser);
 router.post("/login",UserController.loginUser);
 //http://localhost:3000/users/login (usando POST)
 
+router.get("/:id",UserController.getUserId);
+//http://localhost:3000/users/:id
+
 
 
 module.exports = router;
