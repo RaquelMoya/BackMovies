@@ -4,6 +4,8 @@ const router = express.Router();
 const UserController = require("../controllers/UserController");
 
 //CRUD Rest Full
+
+
 router.get("/", UserController.getUsers);
 //http://localhost:3000/users (usando GET)
 
@@ -23,11 +25,16 @@ router.get("/:id",UserController.getUserId);
 router.get("/email/:email", UserController.getUserEmail);
 //http://localhost:3000/users/email/:email
 
+
+
+//Borrar usuarios
 router.delete("/", UserController.deleteAll);
 //http://localhost:3000/users (usando DEL)
 
 router.delete("/delete/:id", UserController.deleteById);
 //http://localhost:3000/users/delete/:id (usando DEL)
+
+
 
 //Modificar datos de usuario
 router.put("/:id", UserController.modifyUser);

@@ -1,6 +1,8 @@
 
 const { send } = require('express/lib/response');
 const { User } = require('../models/index');
+const bcrypt = require('bcrypt');
+const authConfig = require('../config/auth');
 
 const UserController =  {};
 
@@ -23,6 +25,7 @@ UserController.registerUser = async (req, res) =>{
         let phone = req.body.phone;
         let email = req.body.email;
         let adress = req.body.adress;
+        let password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds));
 
         //Guardamos en sequelize usuarios
             User.create({
@@ -31,7 +34,8 @@ UserController.registerUser = async (req, res) =>{
                 age: age, 
                 phone: phone,
                 adress: adress,
-                email: email
+                email: email,
+                password: password
             //Se muestra en Postman 
             }).then(user =>{
                 res.json({
