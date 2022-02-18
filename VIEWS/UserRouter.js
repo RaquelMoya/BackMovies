@@ -23,5 +23,15 @@ router.get("/:id",UserController.getUserId);
 router.get("/email/:email", UserController.getUserEmail);
 //http://localhost:3000/users/email/:email
 
+router.delete("/", UserController.deleteAll);
+//http://localhost:3000/users (usando DEL)
+
+router.delete("/delete/:id", UserController.deleteById);
+//http://localhost:3000/users/delete/:id (usando DEL)
+
+//Modificar datos de usuario
+router.put("/:id", UserController.modifyUser);
+//http://localhost:3000/users/:id (usando PUT)
+
 
 module.exports = router;

@@ -1,4 +1,5 @@
 
+const { send } = require('express/lib/response');
 const { User } = require('../models/index');
 
 const UserController =  {};
@@ -65,6 +66,61 @@ UserController.getUserEmail =(req, res) =>{
     })
 };
 
+//Para eliminar usuarios
+UserController.deleteAll =async(req, res) =>{
+    
+    try {
+
+        Usuario.destroy({
+            where : {},
+            truncate : false
+        })
+        .then(usuariosEliminados => {
+            res.send(`Se han eliminado ${usuariosEliminados} usuarios`);
+        })
+
+    } catch (error) {
+        res.send(error);
+    }
+
+};
+
+//Para eliminar usuario por ID
+UserController.deleteById = async(req, res) =>{
+    let id = req.params.id;
+
+    try{
+        User.destroy({
+            where : { id : id},
+            truncate : false
+        })
+      
+        .then(userDeleted =>{
+            console.log(userDeleted);
+            res.send(`El usuario con la id ${id} ha sido eliminado`);
+        })
+    }
+    catch(error){
+        send.error(error);
+    }
+}
+
+//Para modificar usuarios
+UserController.modifyUser = async (req, res) =>{
+     let datos = req.body;
+     let id = req.params.id;
+    
+    try{
+        User.update(req.body, {
+            where: {id : id}
+        })
+        .then(actualizado =>{
+            res.send(actualizado);
+        })
+    } catch(error){
+
+    }
+}
 
 
 
