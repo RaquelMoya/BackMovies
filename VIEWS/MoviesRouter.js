@@ -1,6 +1,7 @@
 const express = require("express");
 const axios = require("axios");
 const router = express.Router();
+const auth = require('../middlewares/auth.js');
 
 
 const MoviesController = require("../controllers/MoviesController");

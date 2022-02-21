@@ -1,5 +1,6 @@
 const router = require("express").Router();
 
+const auth = require('./middlewares/auth');
 
 const UserRouter = require ("./VIEWS/UserRouter");
 const MoviesRouter = require("./VIEWS/MoviesRouter");
