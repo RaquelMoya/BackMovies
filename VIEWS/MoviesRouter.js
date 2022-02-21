@@ -12,17 +12,34 @@ router.get("/",MoviesController.getTop);
 //http://localhost:3000/movies(usando GET)
 router.get("/popular",MoviesController.getPopular);
 //http://localhost:3000/movies/popular(usando GET)
+
+//Endpoint búsqueda por título
 router.get("/title",MoviesController.getTitle);
 //http://localhost:3000/movies/title(usando GET)
+
 router.get("/upcoming",MoviesController.getUpcoming);
 //http://localhost:3000/movies/upcoming(usando GET)
+
+//Endpoint para buscar detalles de películas por id mediante Query params en postman
 router.get("/details",MoviesController.getDetails);
 //http://localhost:3000/movies/details(usando GET)
+
+//Endpoint para buscar reviews de películas por id mediante Query params en postman
 router.get("/reviews",MoviesController.getReviews);
 //http://localhost:3000/movies/reviews(usando GET)
+
+
 router.get("/latest",MoviesController.getLatest);
 //http://localhost:3000/movies/latest(usando GET)
 router.get("/similar",MoviesController.getSimilar);
 //http://localhost:3000/movies/similar(usando GET)
+
+//Endpoint para listar id de genero 
+router.get("/genres", MoviesController.getGenres);
+//http://localhost:3000/movies/genres(usando GET)
+
+//Endpoint para buscar pelicula por id de genero
+router.get("/genres/genre", MoviesController.getMovieByGenre);
+//http://localhost:3000/movies/genres/genre(usando GET)
 
 module.exports = router;

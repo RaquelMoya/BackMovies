@@ -125,6 +125,36 @@ MoviesController.getSimilar = async (req,res)=>{
 
     }; 
 };
+//Endpoint para listar generos
+MoviesController.getGenres = async (req,res)=>{
+    try {
+
+        let resultado = await axios.get("https://api.themoviedb.org/3/genre/movie/list?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US");
+
+        res.send(resultado.data);
+
+    } catch (error) {
+
+        res.send(error);
+
+    }; 
+}
+//Endpoint para buscar peliculas por genero
+MoviesController.getMovieByGenre = async (req,res)=>{
+    try {
+
+        let genre = req.query.criterio;
+
+        let resultado = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${genre}&with_watch_monetization_types=flatrate`);
+
+        res.send(resultado.data);
+
+    } catch (error) {
+
+        res.send(error);
+
+    }; 
+};
 
 
 
