@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      //El modelo base con relacion uno a muchos, siempre lleva hasMany y exporta su id al modulo de relacion
+      this.hasMany(models.Order, {
+        foreignKey: 'movieId'
+      });
     }
   }
   Movie.init({
@@ -18,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     sinopsis: DataTypes.STRING,
     adult: DataTypes.BOOLEAN,
     image: DataTypes.STRING,
-    fecha: DataTypes.STRING
+    date: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'Movie',

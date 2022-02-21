@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      //El modelo base con relacion uno a muchos, siempre lleva hasMany y exporta su id al modulo de relacion
+      this.hasMany(models.Order, {
+        foreignKey: 'userId'
+      });
     }
   }
   User.init({
