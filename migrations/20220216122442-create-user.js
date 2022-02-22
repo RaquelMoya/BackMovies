@@ -29,6 +29,14 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
+      nickname:{
+        type: Sequelize.STRING
+      },
+      rol: {
+        type: Sequelize.BOOLEAN,
+        //este método se usa para dar un valor por defecto
+        defaultValue: false,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

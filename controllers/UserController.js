@@ -1,6 +1,7 @@
 
 const { send } = require('express/lib/response');
 const { User } = require('../models/index');
+const { Op } = require("sequelize");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const authConfig = require('../config/auth');
@@ -18,8 +19,7 @@ UserController.getUsers =(req,res)=>{
 };
 
 UserController.registerUser = async (req, res) =>{
-//Registro usuarios mediante Postman
-    try{
+//Registro usuarios 
         let name = req.body.name;
         let surname = req.body.surname;
         let age = req.body.age;
@@ -27,28 +27,56 @@ UserController.registerUser = async (req, res) =>{
         let email = req.body.email;
         let adress = req.body.adress;
         let password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds));
+        let nickname = req.body.nickname;
 
         //Guardamos en sequelize usuarios
-            User.create({
-                name: name,
-                surname: surname,
-                age: age, 
-                phone: phone,
-                adress: adress,
-                email: email,
-                password: password
-            //Se muestra en Postman 
-            }).then(user =>{
-                res.json({
-                    name: user.name,
-                    email: user.email
-                })
-            });
+     
+        User.findAll({
+            where : {
 
-    }catch (error){
-        res.send(error);
-    }
+                [Op.or] : [
+                    {
+                        email : {
+                            [Op.like] : email
+                        }
+                    },
+                    {
+                        nickname : {
+                            [Op.like] : nickname
+                        }
+                    }
+                ]
+
+            }
+
+        }).then(datosRepetidos => {
+
+            if(datosRepetidos == 0){
+
+                    User.create({
+                    name: name,
+                    surname: surname,
+                    age: age,
+                    phone: phone,
+                    email: email,
+                    adress: adress,
+                    password: password,
+                    nickname: nickname
+                }).then(user => {
+                    res.send(`${user.name}, bienvenid@ a este infierno`);
+                })
+                .catch((error) => {
+                    res.send(error);
+                });
+
+            }else {
+                res.send("El usuario con ese e-mail o nickname ya existe en nuestra base de datos");
+            }
+        }).catch(error => {
+            res.send(error)
+        });
 };
+
 
 
 UserController.loginUser =(req,res) =>{
@@ -74,7 +102,7 @@ UserController.loginUser =(req,res) =>{
                 });
 
                 res.json({
-                    usuario: User,
+                    user: User,
                     token: token
                 })
             } else {
@@ -150,7 +178,7 @@ UserController.modifyUser = async (req, res) =>{
      let id = req.params.id;
     
     try{
-        User.update(req.body, {
+        User.update(datos, {
             where: {id : id}
         })
         .then(actualizado =>{

@@ -11,6 +11,7 @@ const PORT = 3000;
 
 const router = require("./router");
 
+//configuro opciones de CORS
 let corsOptions ={
     origin: "*",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
