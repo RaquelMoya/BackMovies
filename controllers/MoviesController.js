@@ -31,6 +31,21 @@ MoviesController.getMovieByGenre =(req, res) =>{
     })
 };
 
+//Endpoint para buscar pelicula por titulo
+MoviesController.getMovieByTitle =(req, res) =>{
+    Movie.findOne({ where : {title : req.params.title}})
+    .then(data =>{
+        res.send(data)
+    })
+};
+
+//Endpoint para buscar peliculas por actores
+MoviesController.getMovieByActors =(req, res) =>{
+    Movie.findAll({ where : {actors : req.params.actors}})
+    .then(data =>{
+        res.send(data)
+    })
+};
 
 
 
