@@ -17,11 +17,14 @@ module.exports = {
       adult: {
         type: Sequelize.BOOLEAN
       },
-      image: {
+      genre: {
         type: Sequelize.STRING
       },
-      date: {
-        type: Sequelize.DATE
+      price: {
+        type: Sequelize.INTEGER
+      },
+      actors: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

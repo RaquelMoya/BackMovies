@@ -1,162 +1,35 @@
-const express = require("express");
-const axios = require("axios");
-const router = express.Router();
+const { send } = require('express/lib/response');
+const { Movie } = require('../models/index');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const authConfig = require('../config/auth');
+
 
 const MoviesController = {};
 
-//Endpoint para listar las películas con más valoraciones
-MoviesController.getTop = async (req,res)=>{
-    try {
-
-        let resultado = await axios.get("https://api.themoviedb.org/3/movie/top_rated?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US&page=1");
-
-        res.send(resultado.data);
-
-    } catch (error) {
-
-        res.send(error);
-
-    }; 
+//Endpoint para traer todas las peliculas
+MoviesController.getAll =(req,res)=>{
+    Movie.findAll()
+    .then(data =>{
+        res.send(data)
+    })
 };
-//Endpoint para listar las peliculas más populares
-MoviesController.getPopular = async (req,res)=>{
-    try {
 
-        let resultado = await axios.get("https://api.themoviedb.org/3/movie/popular?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US&page=1");
-
-        res.send(resultado.data);
-
-    } catch (error) {
-
-        res.send(error);
-
-    }; 
+//Endpoint para buscar películas por id
+MoviesController.getMovieById =(req,res) =>{
+    Movie.findByPk(req.params.id)
+    .then(data =>{
+        res.send(data)
+    })
 };
-//Endpoint para buscar películas por título mediante Query params en postman
-MoviesController.getTitle = async (req,res)=>{
-    try {
-        //Por defecto req tiene dos metodos: query para get, body para post. Criterio es el query param KEY que ponemos desde Postman
-        let title = req.query.criterio;
 
-        let resultado = await axios.get(`https://api.themoviedb.org/3/search/company?api_key=210d6a5dd3f16419ce349c9f1b200d6d&query=${title}&page=1`);
-
-        res.send(resultado.data);
-
-    } catch (error) {
-
-        res.send(error);
-
-    }; 
-};
-//Endpoint para buscar novedades
-MoviesController.getUpcoming = async (req,res)=>{
-    try {
-        
-        let resultado = await axios.get("https://api.themoviedb.org/3/movie/upcoming?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US&page=1");
-
-        res.send(resultado.data);
-
-    } catch (error) {
-
-        res.send(error);
-
-    }; 
-};
-//Endpoint para buscar detalles de películas por id mediante Query params en postman
-MoviesController.getDetails = async (req,res)=>{
-    try {
-        //Por defecto req tiene dos metodos: query para get, body para post. Criterio es el query param KEY que ponemos desde Postman
-        let id = req.query.criterio;
-
-        let resultado = await axios.get(`https://api.themoviedb.org/3/movie/${id}/reviews?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US&page=1`);
-
-        res.send(resultado.data);
-
-    } catch (error) {
-
-        res.send(error);
-
-    }; 
-};
-//Endpoint para buscar reviews de películas por id mediante Query params en postman
-MoviesController.getReviews = async (req,res)=>{
-    try {
-        //Por defecto req tiene dos metodos: query para get, body para post. Criterio es el query param KEY que ponemos desde Postman
-        let id = req.query.criterio;
-
-        let resultado = await axios.get(`
-        https://api.themoviedb.org/3/movie/${id}/reviews?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US&page=1`);
-
-        res.send(resultado.data);
-
-    } catch (error) {
-
-        res.send(error);
-
-    }; 
-};
-//Endpoint para buscar la última pelicula añadida 
-MoviesController.getLatest = async (req,res)=>{
-    try {
-        
-        let resultado = await axios.get("https://api.themoviedb.org/3/movie/latest?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US");
-
-        res.send(resultado.data);
-
-    } catch (error) {
-
-        res.send(error);
-
-    }; 
-};
-//Endpoint para buscar películas similares dando un id mediante Query params en postman
-MoviesController.getSimilar = async (req,res)=>{
-    try {
-        //Por defecto req tiene dos metodos: query para get, body para post. Criterio es el query param KEY que ponemos desde Postman
-        let id = req.query.criterio;
-
-        let resultado = await axios.get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US&page=1`);
-
-        res.send(resultado.data);
-
-    } catch (error) {
-
-        res.send(error);
-
-    }; 
-};
-//Endpoint para listar generos
-MoviesController.getGenres = async (req,res)=>{
-    try {
-
-        let resultado = await axios.get("https://api.themoviedb.org/3/genre/movie/list?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US");
-
-        res.send(resultado.data);
-
-    } catch (error) {
-
-        res.send(error);
-
-    }; 
-}
 //Endpoint para buscar peliculas por genero
-MoviesController.getMovieByGenre = async (req,res)=>{
-    try {
-
-        let genre = req.query.criterio;
-
-        let resultado = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${genre}&with_watch_monetization_types=flatrate`);
-
-        res.send(resultado.data);
-
-    } catch (error) {
-
-        res.send(error);
-
-    }; 
+MoviesController.getMovieByGenre =(req, res) =>{
+    Movie.findAll({ where : {genre : req.params.genre}})
+    .then(data =>{
+        res.send(data)
+    })
 };
-
-
 
 
 
