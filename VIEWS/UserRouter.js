@@ -30,6 +30,10 @@ router.post("/login", UserController.loginUser);
 //http://localhost:3000/users/login (usando POST)
 
 
+//Modificar Password
+router.put("/newpassword", auth, UserController.updatePassword);
+
+
 
 //Modificar datos de usuario
 router.put("/:id", auth , UserController.modifyUser);
