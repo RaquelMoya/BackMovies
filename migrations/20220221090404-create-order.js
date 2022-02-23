@@ -32,7 +32,13 @@ module.exports = {
       price: {
         type: Sequelize.INTEGER
       },
-      date: {
+      rented: {
+        type: Sequelize.BOOLEAN
+      },
+      rentingDate: {
+        type: Sequelize.DATE
+      },
+      returnDate: {
         type: Sequelize.DATE
       },
       createdAt: {

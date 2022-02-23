@@ -25,7 +25,9 @@ module.exports = (sequelize, DataTypes) => {
     movieId: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
     price: DataTypes.INTEGER,
-    date: DataTypes.DATE
+    rented: DataTypes.BOOLEAN,
+    rentingDate: DataTypes.DATE,
+    returnDate:DataTypes.DATE
   }, {
     sequelize,
     modelName: 'Order',
