@@ -24,8 +24,6 @@ module.exports = (sequelize, DataTypes) => {
   Order.init({
     movieId: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
-    price: DataTypes.INTEGER,
-    rented: DataTypes.BOOLEAN,
     rentingDate: DataTypes.DATE,
     returnDate:DataTypes.DATE
   }, {

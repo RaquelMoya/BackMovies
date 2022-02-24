@@ -29,12 +29,6 @@ module.exports = {
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE'
     },
-      price: {
-        type: Sequelize.INTEGER
-      },
-      rented: {
-        type: Sequelize.BOOLEAN
-      },
       rentingDate: {
         type: Sequelize.DATE
       },

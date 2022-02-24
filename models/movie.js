@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.Order, {
         foreignKey: 'movieId'
       });
-      this.hasMany(models.ActorMovie, {
+      this.hasMany(models.Act, {
         foreignKey: 'actorId'
       });
       this.hasMany(models.GenreMovie, {
@@ -27,7 +27,8 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     sinopsis: DataTypes.STRING,
     adult: DataTypes.BOOLEAN,
-    price: DataTypes.INTEGER
+    price: DataTypes.INTEGER,
+    rented: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'Movie',

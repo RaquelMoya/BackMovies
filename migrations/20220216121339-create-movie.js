@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Movies', {
@@ -19,6 +20,9 @@ module.exports = {
       },
       price: {
         type: Sequelize.INTEGER
+      },
+      rented: {
+        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,
