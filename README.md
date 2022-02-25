@@ -114,9 +114,6 @@ Entre movies y actors, o genres, pasa lo mismo. La relación entre ellos precisa
 </br>
 
 
-
-Puedes ver este proyecto en: <kbd>⇥</kbd> [GitHub pages]()
-
 <hr>
 
 
