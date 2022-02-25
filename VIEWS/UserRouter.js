@@ -36,16 +36,16 @@ router.put("/newpassword", auth, UserController.updatePassword);
 
 
 //Modificar datos de usuario
-router.put("/:id", auth , UserController.modifyUser);
+router.put("/:id", auth, UserController.modifyUser);
 //http://localhost:3000/users/:id (usando PUT)
 
 
 
 //Borrar usuarios
-router.delete("/", isAdmin, UserController.deleteAll);
+router.delete("/", auth, UserController.deleteAll);
 //http://localhost:3000/users (usando DEL)
 
-router.delete("/delete/:id", isAdmin,  UserController.deleteById);
+router.delete("/delete/:id", auth,  UserController.deleteById);
 //http://localhost:3000/users/delete/:id (usando DEL)
 
 

@@ -1,6 +1,5 @@
 
-const { send } = require('express/lib/response');
-const { User } = require('../models/index');
+const { User } = require("../models/index");
 const { Op } = require("sequelize");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -80,13 +79,15 @@ UserController.registerUser = async (req, res) =>{
 
 
 UserController.loginUser =(req,res) =>{
-    let correo = req.body.email;
+    
+    let email = req.body.email;
     let password = req.body.password;
 
     User.findOne({
-        where : {email : correo}
-    }).then(User => {
-
+        where: {email:email}
+    })
+    .then(User => {
+        
         if(!User){
             res.send("Usuario o contraseña inválido");
         }else {
@@ -191,7 +192,7 @@ UserController.deleteAll =async(req, res) =>{
     
     try {
 
-        Usuario.destroy({
+        User.destroy({
             where : {},
             truncate : false
         })
@@ -206,7 +207,7 @@ UserController.deleteAll =async(req, res) =>{
 };
 
 //Para eliminar usuario por ID
-UserController.deleteById = async(req, res) =>{
+UserController.deleteById = (req, res) =>{
     let id = req.params.id;
 
     try{

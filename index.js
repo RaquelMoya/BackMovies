@@ -5,8 +5,6 @@ const db = require('./db.js');
 
 const cors = require("cors");
 
-const axios = require("axios");
-
 const PORT = 3000;
 
 const router = require("./router");

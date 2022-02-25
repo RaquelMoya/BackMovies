@@ -1,6 +1,6 @@
 'use strict';
 module.exports = {
-  async up(queryInterface, Sequelize) {
+  up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Users', {
       id: {
         allowNull: false,
@@ -24,7 +24,9 @@ module.exports = {
         type: Sequelize.STRING
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull:false,
+        unique:true
       },
       password: {
         type: Sequelize.STRING
@@ -35,7 +37,7 @@ module.exports = {
       rol: {
         type: Sequelize.BOOLEAN,
         //este método se usa para dar un valor por defecto
-        defaultValue: false,
+        defaultValue: false
       },
       createdAt: {
         allowNull: false,
@@ -47,7 +49,7 @@ module.exports = {
       }
     });
   },
-  async down(queryInterface, Sequelize) {
+  down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('Users');
   }
 };

@@ -8,7 +8,7 @@ const OrdersController = require("../controllers/OrdersController");
 
 router.post("/", auth, OrdersController.placeNewOrder);
 
-router.get("/", isAdmin, OrdersController.allOrders);
+router.get("/", auth, OrdersController.allOrders);
 
 
 module.exports = router;
