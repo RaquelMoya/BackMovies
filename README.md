@@ -115,7 +115,7 @@ Entre movies y actors, o genres, pasa lo mismo. La relación entre ellos precisa
 
 
 
-Puedes ver este proyecto en: <kbd>⇥</kbd> [GitHub pages](https://raquelmoya.github.io/JSGame)
+Puedes ver este proyecto en: <kbd>⇥</kbd> [GitHub pages]()
 
 <hr>
 
