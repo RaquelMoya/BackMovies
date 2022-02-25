@@ -6,7 +6,7 @@ const isAdmin = require("../middlewares/isAdmin");
 
 const GenreMovieController = require("../controllers/GenreMovieController");
 
-router.post("/", auth, GenreMovieController.placeNewGenreAsignation);
+router.post("/", auth, isAdmin, GenreMovieController.placeNewGenreAsignation);
 router.get("/", GenreMovieController.allGenresAsignations);
 
 

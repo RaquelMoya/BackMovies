@@ -8,7 +8,7 @@ const UserController = require("../controllers/UserController");
 //CRUD Rest Full
 
 //Ver todos los usuarios
-router.get("/", auth, UserController.getUsers);
+router.get("/", auth, isAdmin, UserController.getUsers);
 //http://localhost:3000/users (usando GET)
 
 //Buscar usuario por ID
@@ -36,16 +36,16 @@ router.put("/newpassword", auth, UserController.updatePassword);
 
 
 //Modificar datos de usuario
-router.put("/:id", auth, UserController.modifyUser);
+router.put("/:id", auth, isAdmin, UserController.modifyUser);
 //http://localhost:3000/users/:id (usando PUT)
 
 
 
 //Borrar usuarios
-router.delete("/", auth, UserController.deleteAll);
+router.delete("/", auth, isAdmin, UserController.deleteAll);
 //http://localhost:3000/users (usando DEL)
 
-router.delete("/delete/:id", auth,  UserController.deleteById);
+router.delete("/delete/:id", auth, isAdmin, UserController.deleteById);
 //http://localhost:3000/users/delete/:id (usando DEL)
 
 

@@ -5,8 +5,10 @@ module.exports = (req, res, next) => {
 
     let id = req.body.id;
     
-    User.findOne({
+    User.findOne ({
+
         where : { id : id }
+
     }).then(usuarioEncontrado => {
 
         if(usuarioEncontrado.rol == 1){

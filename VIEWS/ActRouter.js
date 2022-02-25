@@ -6,7 +6,7 @@ const isAdmin = require("../middlewares/isAdmin");
 
 const ActController = require("../controllers/ActController");
 
-router.post("/", auth, ActController.placeNewAct);
+router.post("/", auth, isAdmin, ActController.placeNewAct);
 router.get("/", ActController.allActs);
 
 
