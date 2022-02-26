@@ -48,6 +48,9 @@ Y ya podríamos introducir las peticiones con los endpoints que detallaremos a c
    - GET /movies--> Muestra todas las películas.
    - GET /movies/id/:id --> Muestra una película buscando por su Id.
    - GET /movies/title/:title --> Muestra una película buscando por su título.
+   - POST /movies--> Registra una nueva película (Solo acceso como Administrador).
+   - DELETE /movies/:id--> Elimina una pelicula mediante su Id (Solo acceso como Administrador).
+   - DELETE /movies/deleteAll--> Elimina todas las películas (Solo acceso como Administrador).
 
 <br>
 
@@ -61,7 +64,6 @@ Y ya podríamos introducir las peticiones con los endpoints que detallaremos a c
    - GET/users/:id --> Muestra un usuario buscando con un Id (Necesita token).
    - GET /users/email/:email --> Muestra un usuario buscando con un email (Necesita token).
    - PUT /users/newpassword --> Modifica el password actual de un usuario (Necesita token).
-   - PUT /users/:id --> Modifica datos de usuario (Necesita token).
    - DELETE /users --> Elimina todos los usuarios (Solo acceso como Administrador). 
     - DELETE /users/delete/:id--> Elimina un usuario buscando con un Id (Solo acceso como Administrador).
 <br>
@@ -69,28 +71,41 @@ Y ya podríamos introducir las peticiones con los endpoints que detallaremos a c
 - Orders
    - POST /orders -->  Crea un nuevo pedido (Necesita token).
    - GET/orders --> Muestra todos los pedidos (Solo acceso como Administrador).
+   - DELETE /orders --> Elimina todos los pedidos (Solo acceso como Administrador).
+   - DELETE /orders/:id --> Elimina un pedido mediante su Id (Solo acceso como Administrador).
 
 <br>
 
 - Genres
    - GET/genres --> Muestra todos los generos.
+   - POST /genres -->  Crea un nuevo genero (Solo acceso como Administrador).
+   - DELETE /genres --> Elimina todos los generos (Solo acceso como Administrador).
+   - DELETE /genres/:id --> Elimina un genero mediante su Id (Solo acceso como Administrador).
 
 <br>
 
 - GenreMovie
    - GET/genreMovie --> Muestra todos los generos asignados a películas.
    - POST/genreMovie --> Crea una nueva asignación de género a película (Solo acceso como Administrador).
+   - DELETE/genreMovie/:id --> Elimina una asignación de género mediante su Id (Solo acceso como Administrador).
+   - DELETE/genreMovie --> Elimina todas las asignaciones de géneros (Solo acceso como Administrador).
 
 <br>
 
 - Actors
    - GET/actors --> Muestra todos los actores/actrices.
+   - POST/actors --> Crea un nuevo registro de actor (Solo acceso como Administrador).
+   - DELETE/actors --> Elimina todos los actores (Solo acceso como Administrador).
+   - DELETE/actors/:id --> Elimina un actor mediante su Id (Solo acceso como Administrador).
+
 
 <br>
 
 - Acts
    - GET/act --> Muestra todas los actuaciones asignadas a películas.
    - POST/act --> Crea una nueva asignación de actores a películas (Solo acceso como Administrador).
+   - DELETE/act --> Elimina todas las actuaciones (Solo acceso como Administrador).
+   - DELETE/act/:id --> Elimina una actuación mediante su Id (Solo acceso como Administrador).
 
 
 
