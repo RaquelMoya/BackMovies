@@ -10,13 +10,14 @@ const UserController =  {};
 
 //Funciones del controlador
 
+//Endpoint para ver todos los usuarios
 UserController.getUsers =(req,res)=>{
     User.findAll()
     .then(data =>{
         res.send(data)
     })
 };
-
+//Endpoint para registrar un nuevo usuario
 UserController.registerUser = async (req, res) =>{
 //Registro usuarios 
         let name = req.body.name;
@@ -75,9 +76,7 @@ UserController.registerUser = async (req, res) =>{
             res.send(error)
         });
 };
-
-
-
+//Endpoint para loguearse 
 UserController.loginUser =(req,res) =>{
     
     let email = req.body.email;
@@ -116,7 +115,7 @@ UserController.loginUser =(req,res) =>{
         res.send(error);
     })
 };
-
+//Endpoint para modificar la contraseña
 UserController.updatePassword = (req,res) => {
 
     let id = req.body.id;
@@ -170,8 +169,7 @@ UserController.updatePassword = (req,res) => {
 
 };
 
-
-//Para buscar un usuario mediante un id
+//Endpoint para buscar un usuario mediante un id
 UserController.getUserId =(req,res) =>{
     User.findByPk(req.params.id)
     .then(data =>{
@@ -179,7 +177,7 @@ UserController.getUserId =(req,res) =>{
     })
 };
 
-//Para buscar un usuario mediante un email
+//Endpoint para buscar un usuario mediante un email
 UserController.getUserEmail =(req, res) =>{
     User.findOne({ where : {email : req.params.email}})
     .then(data =>{
@@ -187,7 +185,7 @@ UserController.getUserEmail =(req, res) =>{
     })
 };
 
-//Para eliminar usuarios
+//Endpoint para eliminar usuarios
 UserController.deleteAll =async(req, res) =>{
     
     try {
@@ -206,7 +204,7 @@ UserController.deleteAll =async(req, res) =>{
 
 };
 
-//Para eliminar usuario por ID
+//Endpoint para eliminar usuario por ID
 UserController.deleteById = (req, res) =>{
     let id = req.params.id;
 

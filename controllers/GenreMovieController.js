@@ -35,6 +35,41 @@ GenreMovieController.allGenresAsignations = async (req, res) => {
     }
 };
 
+GenreMovieController.deleteGenreById = (req, res) => {
+    let id = req.params.id;
+
+    try{
+        GenreMovie.destroy({
+            where : { id : id},
+            truncate : false
+        })
+      
+        .then(asignationDeleted =>{
+            console.log(asignationDeleted);
+            res.send(`La asignacion con la id ${id} ha sido eliminada`);
+        })
+    }
+    catch(error){
+        send.error(error);
+    }
+};
+
+GenreMovieController.deleteAll = (req, res) => {
+    try {
+
+        GenreMovie.destroy({
+            where : {},
+            truncate : false
+        })
+        .then(genreAsignation => {
+            res.send(`Se han eliminado ${genreAsignation} asignaciones de genero`);
+        })
+
+    } catch (error) {
+        res.send(error);
+    }
+};
+
 
 
 

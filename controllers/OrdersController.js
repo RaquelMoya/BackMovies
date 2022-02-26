@@ -3,6 +3,7 @@ const { Order }= require("../models/index");
 
 const OrdersController = {};
 
+//Endpoint para registrar un nuevo pedido
 OrdersController.placeNewOrder = (req,res) => {
     
     let body = req.body;
@@ -24,7 +25,7 @@ OrdersController.placeNewOrder = (req,res) => {
         res.send(error)
     }))
 };
-
+//Endpoint para ver todos los pedidos
 OrdersController.allOrders = async (req, res) => {
     let consulta = `SELECT users.name AS name, movies.title AS title, users.nickname AS nickname, users.email AS email
     FROM users INNER JOIN orders
@@ -35,7 +36,7 @@ OrdersController.allOrders = async (req, res) => {
         res.send(resultado);
     }
 };
-
+//Endpoint para borrar un pedido mediante su id
 OrdersController.deleteOrderById = (req,res) => {
     let id = req.params.id;
 
@@ -54,7 +55,7 @@ OrdersController.deleteOrderById = (req,res) => {
         send.error(error);
     }
 };
-
+//Endpoint para borrar todos los pedidos
 OrdersController.deleteAll = (req, res) => {
     try {
 

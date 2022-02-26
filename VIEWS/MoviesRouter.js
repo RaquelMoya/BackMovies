@@ -8,8 +8,7 @@ const isAdmin = require("../middlewares/isAdmin");
 
 const MoviesController = require("../controllers/MoviesController");
 
-//CRUD Rest-ful
-
+//Endpoint para ver todas las peliculas
 router.get("/",MoviesController.getAll);
 
 //Endpoint para buscar películas por id 

@@ -5,7 +5,7 @@ const isAdmin = require("../middlewares/isAdmin");
 
 const UserController = require("../controllers/UserController");
 
-//CRUD Rest Full
+
 
 //Ver todos los usuarios
 router.get("/", auth, UserController.getUsers);
@@ -32,6 +32,7 @@ router.post("/login", UserController.loginUser);
 
 //Modificar Password
 router.put("/newpassword", auth, UserController.updatePassword);
+//http://localhost:3000/users/newpassword (usando PUT)
 
 
 
@@ -39,6 +40,7 @@ router.put("/newpassword", auth, UserController.updatePassword);
 router.delete("/", auth, isAdmin, UserController.deleteAll);
 //http://localhost:3000/users (usando DEL)
 
+//Borrar usuario mediante su id
 router.delete("/delete/:id", auth, isAdmin, UserController.deleteById);
 //http://localhost:3000/users/delete/:id (usando DEL)
 
