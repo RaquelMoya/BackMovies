@@ -12,6 +12,8 @@ Este proyecto consiste en replicar la parte Backend de un servicio de alquiler d
 
 A continuación encontraréis detallados cada uno de los endpoints y de las funcionalidades de este Backend.
 
+La base de datos utilizada es SQL, ya que nos interesa poder navegar entre tablas relacionadas entre sí para reunir datos de diversas tablas en una misma consulta. 
+
 ### Instrucciones 🔧
 
 El primer paso para arrancar el proyecto es clonar este repositorio en vuestro repositorio local.

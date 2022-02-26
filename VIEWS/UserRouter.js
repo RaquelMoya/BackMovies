@@ -8,7 +8,7 @@ const UserController = require("../controllers/UserController");
 //CRUD Rest Full
 
 //Ver todos los usuarios
-router.get("/", auth, isAdmin, UserController.getUsers);
+router.get("/", auth, UserController.getUsers);
 //http://localhost:3000/users (usando GET)
 
 //Buscar usuario por ID
@@ -32,12 +32,6 @@ router.post("/login", UserController.loginUser);
 
 //Modificar Password
 router.put("/newpassword", auth, UserController.updatePassword);
-
-
-
-//Modificar datos de usuario
-router.put("/:id", auth, isAdmin, UserController.modifyUser);
-//http://localhost:3000/users/:id (usando PUT)
 
 
 

@@ -12,7 +12,7 @@ GenreMovieController.placeNewGenreAsignation = (req,res) => {
         genreId: body.genreId,
         movieId: body.movieId,
     })
-    .then(genreMovie => {
+    .then(GenreMovie => {
         if(GenreMovie){
             res.send(GenreMovie)
         }else{

@@ -226,24 +226,6 @@ UserController.deleteById = (req, res) =>{
     }
 }
 
-//Para modificar usuarios
-UserController.modifyUser = async (req, res) =>{
-     let datos = req.body;
-     let id = req.params.id;
-    
-    try{
-        User.update(datos, {
-            where: {id : id}
-        })
-        .then(actualizado =>{
-            res.send(actualizado);
-        })
-    } catch(error){
-
-    }
-}
-
-
 
 
 module.exports = UserController;
