@@ -36,6 +36,41 @@ OrdersController.allOrders = async (req, res) => {
     }
 };
 
+OrdersController.deleteOrderById = (req,res) => {
+    let id = req.params.id;
+
+    try{
+        Order.destroy({
+            where : { id : id},
+            truncate : false
+        })
+      
+        .then(orderDeleted =>{
+            console.log(orderDeleted);
+            res.send(`El pedido con la id ${id} ha sido eliminado`);
+        })
+    }
+    catch(error){
+        send.error(error);
+    }
+};
+
+OrdersController.deleteAll = (req, res) => {
+    try {
+
+        Order.destroy({
+            where : {},
+            truncate : false
+        })
+        .then(pedidosEliminados => {
+            res.send(`Se han eliminado ${pedidosEliminados} pedidos`);
+        })
+
+    } catch (error) {
+        res.send(error);
+    }
+};
+
 
 
 
