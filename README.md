@@ -48,6 +48,10 @@ Y ya podríamos introducir las peticiones con los endpoints que detallaremos a c
 
 ## Endpoints
 
+Todos los Endpoints llevan como raiz: 
+### `http://localhost:3000`
+A continuación se especifican el método a introducir en Postman, y lo que debemos introducir a continuación de la raiz para acceder a cada uno de los endpoints.
+
 - Movies
    - GET /movies--> Muestra todas las películas.
    - GET /movies/id/:id --> Muestra una película buscando por su Id.
