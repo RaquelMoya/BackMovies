@@ -30,6 +30,10 @@ Realizamos la migración de los modelos a la base de datos local.
 
 ### `sequelize db:migrate`
 
+Ponemos en marcha los seeders.
+
+### `sequelize db:seed:all`
+
 Arrancamos el servidor
 
 ### `npm run dev`
