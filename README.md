@@ -133,7 +133,7 @@ Entre movies y actors, o genres, pasa lo mismo. La relación entre ellos precisa
 
 <img src="img/js.jpg" width="90em"/><img src="img/node.png" width="90em"/><img src="img/sql.png" width="90em"/><img src="img/sequelize.png" width="90em"/>
 </br>
-<img src="img/nodemon.png" width="90em"/><img src="img/cors.png" width="90em"/><img src="img/bcrypt.png" width="90em"/><img src="img/express.png" width="90em"/>
+<img src="img/nodemon.png" width="90em"/><img src="img/cors.png" width="90em"/><img src="img/bcrypt.jpg" width="90em"/><img src="img/express.png" width="90em"/>
 </br>
 <img src="img/dotenv.png" width="90em"/><img src="img/jwt.png" width="90em"/><img src="img/github.png" width="90em"/><img src="img/postman.png" width="90em"/>
 </br>
