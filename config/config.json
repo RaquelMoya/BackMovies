@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "rakel1990",
-    "database": "films2022",
-    "host": "127.0.0.1",
+    "username": "ba022539dbc447",
+    "password": "62f73309",
+    "database": "heroku_d6646060278f816",
+    "host": "eu-cdbr-west-02.cleardb.net",
     "dialect": "mysql"
   },
   "test": {
@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "ba022539dbc447",
+    "password": "62f73309",
+    "database": "heroku_d6646060278f816",
+    "host": "eu-cdbr-west-02.cleardb.net",
     "dialect": "mysql"
   }
 }
