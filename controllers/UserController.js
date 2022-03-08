@@ -223,6 +223,27 @@ UserController.deleteById = (req, res) =>{
         send.error(error);
     }
 }
+//Actualiza Datos por ID
+UserController.updateProfile = async (req, res) => {
+
+    let data = req.body;
+
+    let id = req.params.id
+
+    try {
+
+        User.update(data, {
+            where: { id: id }
+        })
+            .then(updated => {
+                res.send(updated)
+            })
+
+    } catch (error) {
+        res.send(error)
+    }
+
+};
 
 
 

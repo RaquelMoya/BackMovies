@@ -45,7 +45,8 @@ router.delete("/delete/:id", auth, isAdmin, UserController.deleteById);
 //http://localhost:3000/users/delete/:id (usando DEL)
 
 
-
+//Actualiza datos de usuarios en la DB
+router.put('/:id', auth, UserController.updateProfile);
 
 
 
