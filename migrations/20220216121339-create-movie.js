@@ -12,17 +12,17 @@ module.exports = {
       title: {
         type: Sequelize.STRING
       },
-      sinopsis: {
-        type: Sequelize.STRING
+      synopsis: {
+        type: Sequelize.TEXT
       },
       adult: {
         type: Sequelize.BOOLEAN
       },
-      price: {
-        type: Sequelize.INTEGER
+      popularity: {
+        type: Sequelize.FLOAT
       },
-      rented: {
-        type: Sequelize.BOOLEAN
+      image: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
