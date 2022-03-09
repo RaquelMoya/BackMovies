@@ -128,7 +128,7 @@ MoviesController.deleteAll =(req,res) => {
 //Función clonar 500 película desde TMDB
 MoviesController.clone = async () => {
     ///Variable para guardar el root para ver el póster
-    let TMDBimgUrlRoot = "https://image.tmdb.org/t/p/original";
+    let TMDBimgUrlRoot = "https://image.tmdb.org/t/p/w185";
     //Endpoint para traerme una página entera de películas. Necesario para tenerlo una primera vez
     let firstScan = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`)
     //bucle para recorrer 25 páginas de resultados. El valor de page lo saco de una función random para que no siempre muestre las mismas páginas.
