@@ -24,7 +24,7 @@ router.post("/", auth, isAdmin, MoviesController.registerMovie);
 router.delete("/:id", auth, isAdmin, MoviesController.deleteById);
 
 //Endpoint para borrar todas las peliculas
-router.delete("/deleteAll", auth, isAdmin, MoviesController.deleteAll);
+router.delete("/", auth, isAdmin, MoviesController.deleteAll);
 
 //Endpoint-FilmController methods links
 router.get('/clone', async(req, res) => {

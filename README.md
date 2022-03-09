@@ -30,6 +30,21 @@ Realizamos la migración de los modelos a la base de datos local.
 
 ### `sequelize db:migrate`
 
+Levantamos el servidor para acceder al endpoint de clonar peliculas desde Postman.
+
+### `npm run dev`
+
+Clonamos las películas de la API de TMDB para tener películas en nuestra base de datos.
+
+Para ello, en Postman, accedemos al endpoint:
+
+http://localhost:3000/movies/clone
+
+Volvemos a tirar abajo el servidor
+
+CTRL + C
+
+
 Ponemos en marcha los seeders.
 
 ### `sequelize db:seed:all`

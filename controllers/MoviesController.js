@@ -45,6 +45,7 @@ MoviesController.registerMovie =(req, res) => {
     let adult = req.body.adult;
     let popularity = req.body.popularity;
     let image = req.body.image;
+    let genres = req.body.genres;
  
     Movie.findAll({
         where : {
@@ -68,7 +69,8 @@ MoviesController.registerMovie =(req, res) => {
                 synopsis: synopsis,
                 adult: adult,
                 popularity: popularity,
-                image: image
+                image: image,
+                genres: genres
                 
             }).then(movie => {
                 res.send(`${movie.title} ha sido añadida al repertorio de peliculas`);
