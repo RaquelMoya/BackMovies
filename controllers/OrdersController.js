@@ -1,5 +1,7 @@
 const { Order }= require("../models/index");
 
+const auth = require('../middlewares/auth.js');
+const isAdmin = require("../middlewares/isAdmin");
 
 const OrdersController = {};
 
@@ -25,6 +27,18 @@ OrdersController.placeNewOrder = (req,res) => {
         res.send(error)
     }))
 };
+//Endpoint para ver todos los pedidos asignados a un user
+OrdersController.getOrdersById =async (req, res) => {
+    let consulta = `SELECT movies.title AS title, users.name AS name
+    FROM movies INNER JOIN orders
+    ON movies.id = orders.movieId INNER JOIN users
+    ON users.id = orders.userId;`;//Introducir entre las comillas la consulta hecha pura en SQL
+    let resultado = await Order.sequelize.query(consulta,{type: Order.sequelize.QueryTypes.SELECT});
+    if(resultado){
+        res.send(resultado);
+    }
+};
+
 //Endpoint para ver todos los pedidos
 OrdersController.allOrders = async (req, res) => {
     let consulta = `SELECT users.name AS name, movies.title AS title, users.nickname AS nickname, users.email AS email
