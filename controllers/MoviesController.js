@@ -32,7 +32,7 @@ MoviesController.getMovieById =(req,res) =>{
 
 //Endpoint para buscar pelicula por titulo
 MoviesController.getMovieByTitle =(req, res) =>{
-    Movie.findOne({ where : {title : req.params.title}})
+    Movie.findAll({ where : {title : req.params.title}})
     .then(data =>{
         res.send(data)
     })
