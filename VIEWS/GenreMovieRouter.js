@@ -8,13 +8,13 @@ const GenreMovieController = require("../controllers/GenreMovieController");
 
 
 //Endpoint para registrar una nueva asignacion de genero
-router.post("/", auth, isAdmin, GenreMovieController.placeNewGenreAsignation);
+router.post("/", isAdmin, auth, GenreMovieController.placeNewGenreAsignation);
 //Endpoint para ver todas las asignaciones de generos
 router.get("/", GenreMovieController.allGenresAsignations);
 //Endpoint para borrar una asignacion de genero
-router.delete("/:id", auth, isAdmin, GenreMovieController.deleteGenreById);
+router.delete("/:id", isAdmin, auth,  GenreMovieController.deleteGenreById);
 //Endpoint para borrar todas las asignaciones
-router.delete("/", auth, isAdmin, GenreMovieController.deleteAll);
+router.delete("/", isAdmin, auth,  GenreMovieController.deleteAll);
 
 
 module.exports = router;

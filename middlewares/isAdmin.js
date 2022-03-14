@@ -3,8 +3,8 @@ const { User } = require('../models/index');
 
 module.exports = (req, res, next) => {
 
-    let id = req.body.id;
-    
+    let id = req.params.id;
+    console.log ("aqui esta la id", id);
     User.findOne ({
 
         where : { id : id }

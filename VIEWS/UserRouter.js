@@ -37,11 +37,11 @@ router.put("/newpassword", auth, UserController.updatePassword);
 
 
 //Borrar usuarios
-router.delete("/", auth, isAdmin, UserController.deleteAll);
+router.delete("/", isAdmin, auth,  UserController.deleteAll);
 //http://localhost:3000/users (usando DEL)
 
 //Borrar usuario mediante su id
-router.delete("/delete/:id", auth, isAdmin, UserController.deleteById);
+router.delete("/delete/:id",isAdmin,  auth,  UserController.deleteById);
 //http://localhost:3000/users/delete/:id (usando DEL)
 
 

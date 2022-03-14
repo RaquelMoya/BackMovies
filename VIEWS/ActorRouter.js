@@ -11,10 +11,10 @@ const ActorController = require("../controllers/ActorController");
 //Endpoint para ver todos los actores registrados
 router.get("/", ActorController.getAllActors);
 //Endpoint para registrar un nuevo actor
-router.post("/", auth, isAdmin, ActorController.registerActor);
+router.post("/", isAdmin, auth, ActorController.registerActor);
 //Endpoint para borrar un actor mediante su id
-router.delete("/:id", auth, isAdmin, ActorController.deleteActor);
+router.delete("/:id", isAdmin, auth, ActorController.deleteActor);
 //Endpoint para borrar todos los actores
-router.delete("/", auth, isAdmin, ActorController.deleteAll);
+router.delete("/", isAdmin, auth,  ActorController.deleteAll);
 
 module.exports = router;
