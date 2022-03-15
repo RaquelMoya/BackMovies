@@ -5,7 +5,7 @@ const db = require('./db.js');
 
 const cors = require("cors");
 
-const PORT = 3000;
+const PORT = 3500;
 
 const router = require("./router");
 

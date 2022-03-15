@@ -10,10 +10,10 @@ const GenreController = require("../controllers/GenreController");
 //Endpoint para ver todos los generos
 router.get("/", GenreController.getAllGenres);
 //Endpoint para registrar un nuevo genero
-router.post("/", isAdmin, auth, GenreController.registerGenre);
+router.post("/", auth, isAdmin, GenreController.registerGenre);
 //Endpoint para borrar un genero mediante su id
-router.delete("/:id", isAdmin, auth, GenreController.deleteGenre);
+router.delete("/:id", auth, isAdmin, GenreController.deleteGenre);
 //Endpoint para borrar todos los generos
-router.delete("/", isAdmin, auth, GenreController.deleteAll);
+router.delete("/", auth, isAdmin,  GenreController.deleteAll);
 
 module.exports = router;
