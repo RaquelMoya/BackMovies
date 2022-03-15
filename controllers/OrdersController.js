@@ -44,15 +44,14 @@ OrdersController.getOrdersById =async (req, res) => {
 
 //Endpoint para ver todos los pedidos
 OrdersController.allOrders = async (req, res) => {
-    let consulta = `SELECT *, movies.title AS title, users.name AS name
-    FROM movies INNER JOIN orders
-    ON movies.id = orders.movieId INNER JOIN users
-    ON users.id = orders.userId;`;
+ let consulta = `SELECT movies.title AS title, users.name AS name
+   FROM movies INNER JOIN orders
+   ON movies.id = orders.movieId INNER JOIN users
+   ON users.id = orders.userId;`;
     let resultado = await Order.sequelize.query(consulta,{type: Order.sequelize.QueryTypes.SELECT});
     if(resultado){
         res.send(resultado);
     }
-   
 };
 //Endpoint para borrar un pedido mediante su id
 OrdersController.deleteOrderById = (req,res) => {
