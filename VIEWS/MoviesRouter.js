@@ -18,13 +18,13 @@ router.get("/id/:id",MoviesController.getMovieById);
 router.get("/title/:title", MoviesController.getMovieByTitle);
 
 //Endpoint para registrar nueva pelicula
-router.post("/", isAdmin, auth,  MoviesController.registerMovie);
+router.post("/", auth, isAdmin,   MoviesController.registerMovie);
 
 //Endpoint para borrar una pelicula
-router.delete("/:id", isAdmin, auth,  MoviesController.deleteById);
+router.delete("/:id", auth, isAdmin,  MoviesController.deleteById);
 
 //Endpoint para borrar todas las peliculas
-router.delete("/",isAdmin, auth,  MoviesController.deleteAll);
+router.delete("/", auth, isAdmin, MoviesController.deleteAll);
 
 //Endpoint-FilmController methods links
 router.get('/clone', async(req, res) => {

@@ -20,6 +20,7 @@ module.exports = (req, res, next) => {
                 res.status(500).json({ msg: "Ha ocurrido un problema al decodificar el token", err });
             } else {
                 req.user = decoded;
+                console.log(user);
                 //Si todo ha ido bien y esta autorizado el token, permite pasar al siguiente punto, que es la funcion controladora
                 next();
             }
