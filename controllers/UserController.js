@@ -95,7 +95,6 @@ UserController.loginUser =(req,res) =>{
 
             if (bcrypt.compareSync(password, User.password)) { //COMPARA CONTRASEÑA INTRODUCIDA CON CONTRASEÑA GUARDADA, TRAS DESENCRIPTAR
 
-                console.log(User.password);
 
                 let token = jwt.sign({ user: User }, authConfig.secret, {
                     expiresIn: authConfig.expires
@@ -105,6 +104,7 @@ UserController.loginUser =(req,res) =>{
                     user: User,
                     token: token
                 })
+              
             } else {
                 res.status(401).json({ msg: "Usuario o contraseña inválidos" });
             }

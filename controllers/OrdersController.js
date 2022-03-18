@@ -44,7 +44,8 @@ OrdersController.getOrdersById =async (req, res) => {
 
 //Endpoint para ver todos los pedidos
 OrdersController.allOrders = async (req, res) => {
- let consulta = `SELECT movies.title AS title, users.name AS name
+    
+ let consulta = `SELECT movies.title AS title, users.name AS name, orders.id AS id, users.id AS userId
    FROM movies INNER JOIN orders
    ON movies.id = orders.movieId INNER JOIN users
    ON users.id = orders.userId;`;
@@ -52,7 +53,9 @@ OrdersController.allOrders = async (req, res) => {
     if(resultado){
         res.send(resultado);
     }
+ 
 };
+
 //Endpoint para borrar un pedido mediante su id
 OrdersController.deleteOrderById = (req,res) => {
     let id = req.params.id;

@@ -8,7 +8,7 @@ const UserController = require("../controllers/UserController");
 
 
 //Ver todos los usuarios
-router.get("/", auth, UserController.getUsers);
+router.get("/", auth, isAdmin, UserController.getUsers);
 //http://localhost:3500/users (usando GET)
 
 //Buscar usuario por ID

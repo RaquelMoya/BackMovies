@@ -3,7 +3,6 @@ const authConfig = require('../config/auth');
 
 module.exports = (req, res, next) => {
 
-    console.log(req.headers);
 
     // Comprobar que existe el token
     if(!req.headers.authorization) {
