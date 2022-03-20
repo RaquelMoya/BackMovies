@@ -39,7 +39,7 @@ GenreMovieController.findByGenre = async (req,res) => {
     let consulta = `SELECT genres.name AS name, movies.title AS title
     FROM genres INNER JOIN genremovies
     ON genres.id = genremovies.genreId INNER JOIN movies
-    ON movies.id = genremovies.movieId WHERE genres.name = "${genre}";`;
+    ON movies.id = genremovies.movieId WHERE genres.name LIKE '%${genre}%';`;
     let resultado = await GenreMovie.sequelize.query(consulta, {type: GenreMovie.sequelize.QueryTypes.SELECT});
     if(resultado){
         res.send(resultado);
