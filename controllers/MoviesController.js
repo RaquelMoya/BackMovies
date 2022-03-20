@@ -31,7 +31,7 @@ MoviesController.getMovieById =(req,res) =>{
 };
 
 //Endpoint para buscar pelicula por titulo
-MoviesController.getMovieByTitle =(req, res) =>{
+MoviesController.getMovieByTitle =async(req, res) =>{
     let title = req.params.title;
     let consulta = `SELECT * FROM heroku_ece4b79e2569a2f.movies WHERE movies.title LIKE '%${title}%';`;
     let resultado = await Movie.sequelize.query(consulta, {type: Movie.sequelize.QueryTypes.SELECT});
