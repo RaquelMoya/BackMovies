@@ -28,7 +28,7 @@ GenreMovieController.allGenresAsignations = async (req, res) => {
     let consulta = `SELECT genres.name AS name, movies.title AS title
     FROM genres INNER JOIN genreMovies
     ON genres.id = genreMovies.genreId INNER JOIN movies
-    ON movies.id = genreMovies.movieId;`;//Introducir entre las comillas la consulta hecha pura en SQL
+    ON movies.id = genreMovies.movieId;`;
     let resultado = await GenreMovie.sequelize.query(consulta,{type: GenreMovie.sequelize.QueryTypes.SELECT});
     if(resultado){
         res.send(resultado);
